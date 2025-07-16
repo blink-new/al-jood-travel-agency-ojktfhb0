@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وكالة الجود للسفريات - توثيق الكود البرمجي</title>
+    <style>
+        body {
+            font-family: 'Cairo', 'Courier New', monospace;
+            line-height: 1.8;
+            margin: 20px;
+            background: #f8f9fa;
+            direction: rtl;
+        }
+        .header {
+            text-align: center;
+            background: #1B4332;
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .file-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+        .file-title {
+            background: #D4AF37;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.4;
+            border-right: 4px solid #1B4332;
+            direction: ltr;
+            text-align: left;
+        }
+        .description {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-right: 4px solid #28a745;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        .arabic-explanation {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-right: 4px solid #ffc107;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        @media print {
+            body { margin: 0; }
+            .file-section { page-break-inside: avoid; }
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>وكالة الجود للسفريات والسياحة</h1>
+        <h2>توثيق الكود البرمجي</h2>
+        <p>الكود البرمجي الكامل لموقع وكالة السفريات</p>
+        <p>تاريخ الإنشاء: <span id="current-date"></span></p>
+    </div>
+
+    <div class="file-section">
+        <div class="file-title">📄 package.json - ملف تبعيات المشروع</div>
+        <div class="description">
+            هذا الملف يحتوي على جميع المكتبات والأدوات المطلوبة لتشغيل التطبيق.
+        </div>
+        <div class="arabic-explanation">
+            <strong>شرح المحتويات:</strong><br>
+            • <strong>name:</strong> اسم المشروع<br>
+            • <strong>scripts:</strong> الأوامر المتاحة لتشغيل وبناء المشروع<br>
+            • <strong>dependencies:</strong> المكتبات الأساسية المطلوبة للتطبيق<br>
+            • <strong>devDependencies:</strong> أدوات التطوير والبناء<br><br>
+            <strong>المكتبات الرئيسية:</strong><br>
+            • React: مكتبة بناء واجهات المستخدم<br>
+            • TypeScript: لغة برمجة محسنة من JavaScript<br>
+            • Tailwind CSS: إطار عمل للتصميم<br>
+            • Radix UI: مكونات واجهة المستخدم<br>
+            • Lucide React: مكتبة الأيقونات
+        </div>
+        <pre>{
+  "name": "user",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "npm run lint:js && npm run lint:css",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@blinkdotnew/sdk": "^0.17.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.525.0",
+    "tailwindcss": "^3.3.5",
+    // ... المزيد من المكتبات
+  }
+}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">🌐 index.html - الملف الرئيسي للموقع</div>
+        <div class="description">
+            الملف الأساسي الذي يحتوي على هيكل HTML للموقع ونقطة البداية لتطبيق React.
+        </div>
+        <div class="arabic-explanation">
+            <strong>شرح العناصر:</strong><br>
+            • <strong>&lt;meta charset="UTF-8"&gt;:</strong> تحديد ترميز النص لدعم العربية<br>
+            • <strong>&lt;meta name="viewport"&gt;:</strong> إعدادات العرض للهواتف المحمولة<br>
+            • <strong>&lt;title&gt;:</strong> عنوان الصفحة في المتصفح<br>
+            • <strong>&lt;div id="root"&gt;:</strong> المكان الذي سيتم عرض التطبيق فيه<br>
+            • <strong>&lt;script src="/src/main.tsx"&gt;:</strong> ملف JavaScript الرئيسي
+        </div>
+        <pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Blink App&lt;/title&gt;
+    &lt;script src="https://blink.new/auto-engineer.js?projectId=al-jood-travel-agency-ojktfhb0" type="module"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;script type="module" src="/src/main.tsx"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <div class="file-section">
+        <div class="file-title">⚛️ src/main.tsx - نقطة بداية تطبيق React</div>
+        <div class="description">
+            هذا الملف يقوم بتهيئة وتشغيل تطبيق React وعرض المكون الرئيسي App.
+        </div>
+        <div class="arabic-explanation">
+            <strong>شرح الكود:</strong><br>
+            • <strong>import React:</strong> استيراد مكتبة React<br>
+            • <strong>import ReactDOM:</strong> استيراد أدوات عرض React في المتصفح<br>
+            • <strong>import { Toaster }:</strong> مكون عرض الرسائل المنبثقة<br>
+            • <strong>ReactDOM.createRoot:</strong> إنشاء جذر التطبيق<br>
+            • <strong>React.StrictMode:</strong> وضع صارم للتطوير والتحقق من الأخطاء
+        </div>
+        <pre>import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Toaster } from 'react-hot-toast'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  &lt;React.StrictMode&gt;
+    &lt;Toaster position="top-right" /&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;,
+)</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">🎨 src/index.css - ملف التصميم العام</div>
+        <div class="description">
+            ملف CSS الرئيسي الذي يحتوي على جميع أنماط التصميم والألوان ودعم اللغة العربية.
+        </div>
+        <div class="arabic-explanation">
+            <strong>المحتويات الرئيسية:</strong><br>
+            • <strong>@import url:</strong> استيراد خطوط Cairo و Inter من Google Fonts<br>
+            • <strong>@tailwind:</strong> استيراد أنماط Tailwind CSS<br>
+            • <strong>:root:</strong> متغيرات الألوان الأساسية للموقع<br>
+            • <strong>.dark:</strong> ألوان الوضع المظلم<br>
+            • <strong>body:</strong> إعدادات الخط والاتجاه للعربية<br>
+            • <strong>[dir="rtl"]:</strong> دعم الكتابة من اليمين لليسار<br>
+            • <strong>@keyframes:</strong> تعريف الحركات والانتقالات<br><br>
+            <strong>الألوان المستخدمة:</strong><br>
+            • الأخضر الداكن (#1B4332): اللون الأساسي<br>
+            • الذهبي (#D4AF37): اللون المميز<br>
+            • الأبيض (#FEFEFE): لون الخلفية
+        </div>
+        <pre>@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 30 41 59;
+  --primary: 16 185 129;
+  --accent: 251 146 60;
+  /* ... المزيد من المتغيرات */
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: Cairo, Inter, system-ui, sans-serif;
+  direction: rtl;
+}
+
+/* دعم الكتابة من اليمين لليسار */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* تحسينات للنصوص العربية */
+.arabic-text {
+  font-family: Cairo, sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">⚙️ tailwind.config.cjs - إعدادات Tailwind CSS</div>
+        <div class="description">
+            ملف إعدادات إطار عمل Tailwind CSS مع الألوان المخصصة والخطوط والحركات للموقع العربي.
+        </div>
+        <div class="arabic-explanation">
+            <strong>الإعدادات المخصصة:</strong><br>
+            • <strong>darkMode:</strong> تفعيل الوضع المظلم باستخدام class<br>
+            • <strong>content:</strong> تحديد الملفات التي تحتوي على أنماط Tailwind<br>
+            • <strong>colors:</strong> تعريف الألوان المخصصة للموقع<br>
+            • <strong>fontFamily:</strong> تحديد خطوط Cairo للعربية و Inter للإنجليزية<br>
+            • <strong>animation:</strong> تعريف الحركات المخصصة<br>
+            • <strong>keyframes:</strong> تفاصيل الحركات والانتقالات<br><br>
+            <strong>الخطوط المستخدمة:</strong><br>
+            • Cairo: للنصوص العربية<br>
+            • Inter: للنصوص الإنجليزية والأرقام
+        </div>
+        <pre>module.exports = {
+    darkMode: ["class"],
+    content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
+        }
+        // ... المزيد من الألوان
+      },
+      fontFamily: {
+        'arabic': ['Cairo', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Cairo', 'system-ui', 'sans-serif']
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'slide-up': 'slide-up 0.5s ease-out'
+      }
+    }
+  },
+  plugins: [require("tailwindcss-animate")],
+}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - المكون الرئيسي للتطبيق (الجزء الأول)</div>
+        <div class="description">
+            المكون الرئيسي في React الذي يحتوي على موقع وكالة السفريات الكامل مع دعم العربية وتكامل واتساب.
+        </div>
+        <div class="arabic-explanation">
+            <strong>الاستيرادات والإعدادات:</strong><br>
+            • <strong>useState:</strong> لإدارة حالة القائمة المحمولة<br>
+            • <strong>Button, Card, Badge:</strong> مكونات واجهة المستخدم<br>
+            • <strong>الأيقونات:</strong> Phone, MessageCircle, MapPin وغيرها من Lucide React<br><br>
+            <strong>الوظائف الرئيسية:</strong><br>
+            • <strong>handleWhatsAppBooking:</strong> فتح واتساب مع رسالة محددة<br>
+            • <strong>services:</strong> مصفوفة تحتوي على جميع الخدمات المقدمة<br>
+            • <strong>destinations:</strong> الوجهات السياحية المتاحة<br><br>
+            <strong>رقم واتساب المالك:</strong> +967773462821 (عبدالعزيز غوبر)
+        </div>
+        <pre>import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { 
+  Phone, MessageCircle, MapPin, Plane, Shield, Star,
+  CreditCard, Users, Calendar, Globe, CheckCircle, Menu, X, Banknote
+} from 'lucide-react'
+
+function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // وظيفة حجز واتساب مع رقم المالك
+  const handleWhatsAppBooking = (service: string) => {
+    const phoneNumber = '+967773462821' // رقم واتساب المالك
+    const message = `السلام عليكم، أريد حجز خدمة: ${service}`
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+  }
+
+  // مصفوفة الخدمات المقدمة
+  const services = [
+    {
+      title: 'تأشيرات السفر',
+      description: 'استخراج تأشيرات لجميع الدول بسرعة وأمان',
+      icon: &lt;Globe className="w-8 h-8" /&gt;,
+      features: ['تأشيرات سياحية', 'تأشيرات عمل', 'تأشيرات دراسة']
+    },
+    // ... المزيد من الخدمات
+  ]</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - شريط التنقل والقسم الرئيسي</div>
+        <div class="description">
+            يحتوي على شريط التنقل العلوي وقسم المالك والقسم الرئيسي للموقع.
+        </div>
+        <div class="arabic-explanation">
+            <strong>شريط التنقل (Navigation):</strong><br>
+            • شعار الوكالة "وكالة الجود"<br>
+            • قائمة التنقل: الرئيسية، الخدمات، الوجهات، اتصل بنا<br>
+            • زر واتساب للتواصل السريع<br>
+            • قائمة محمولة للهواتف الذكية<br><br>
+            <strong>قسم المالك:</strong><br>
+            • صورة المالك عبدالعزيز غوبر<br>
+            • معلومات التواصل<br>
+            • زر التواصل المباشر عبر واتساب<br><br>
+            <strong>القسم الرئيسي (Hero Section):</strong><br>
+            • عنوان الوكالة الرئيسي<br>
+            • شعار "متعة السفر • راحة المركبات • أمان المسافر"<br>
+            • أزرار الحجز والاتصال
+        </div>
+        <pre>return (
+  &lt;div className="min-h-screen bg-background" dir="rtl"&gt;
+    {/* شريط التنقل */}
+    &lt;nav className="bg-white shadow-sm border-b sticky top-0 z-50"&gt;
+      &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+        &lt;div className="flex justify-between items-center h-16"&gt;
+          &lt;div className="flex items-center space-x-4 space-x-reverse"&gt;
+            &lt;div className="text-2xl font-bold text-primary"&gt;وكالة الجود&lt;/div&gt;
+            &lt;Badge variant="secondary" className="bg-accent text-accent-foreground"&gt;
+              للسفريات والسياحة
+            &lt;/Badge&gt;
+          &lt;/div&gt;
+          
+          {/* قائمة سطح المكتب */}
+          &lt;div className="hidden md:flex items-center space-x-8 space-x-reverse"&gt;
+            &lt;a href="#home"&gt;الرئيسية&lt;/a&gt;
+            &lt;a href="#services"&gt;الخدمات&lt;/a&gt;
+            &lt;a href="#destinations"&gt;الوجهات&lt;/a&gt;
+            &lt;a href="#contact"&gt;اتصل بنا&lt;/a&gt;
+            &lt;Button onClick={() =&gt; handleWhatsAppBooking('استفسار عام')}&gt;
+              &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+              واتساب
+            &lt;/Button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+
+    {/* قسم المالك */}
+    &lt;section className="bg-gradient-to-r from-primary/10 to-accent/10 py-8"&gt;
+      &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+        &lt;div className="flex flex-col md:flex-row items-center justify-center gap-6"&gt;
+          &lt;div className="relative"&gt;
+            &lt;img src="/owner-photo.jpg" alt="عبدالعزيز غوبر - مالك وكالة الجود" /&gt;
+          &lt;/div&gt;
+          &lt;div className="text-center md:text-right"&gt;
+            &lt;h3&gt;عبدالعزيز غوبر&lt;/h3&gt;
+            &lt;p&gt;مالك وكالة الجود للسفريات&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - قسم الخدمات والوجهات</div>
+        <div class="description">
+            يحتوي على عرض جميع الخدمات المقدمة والوجهات السياحية المتاحة.
+        </div>
+        <div class="arabic-explanation">
+            <strong>قسم الخدمات:</strong><br>
+            • عرض 8 خدمات رئيسية في شبكة منظمة<br>
+            • كل خدمة تحتوي على: أيقونة، عنوان، وصف، مميزات<br>
+            • زر حجز واتساب لكل خدمة<br>
+            • تصميم متجاوب للهواتف والحاسوب<br><br>
+            <strong>الخدمات المقدمة:</strong><br>
+            1. تأشيرات السفر (سياحية، عمل، دراسة)<br>
+            2. حج وعمرة (برامج VIP، إقامة فاخرة)<br>
+            3. رحلات يومية (السعودية واليمن)<br>
+            4. بطاقات شخصية<br>
+            5. جوازات السفر<br>
+            6. بطاقات عائلية<br>
+            7. الحوالات المالية<br><br>
+            <strong>قسم الوجهات:</strong><br>
+            • عرض 6 وجهات سياحية رئيسية<br>
+            • صور جذابة لكل وجهة<br>
+            • إمكانية حجز رحلة لكل وجهة
+        </div>
+        <pre>{/* قسم الخدمات */}
+&lt;section id="services" className="py-20"&gt;
+  &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+    &lt;div className="text-center mb-16"&gt;
+      &lt;h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"&gt;
+        خدماتنا المتميزة
+      &lt;/h2&gt;
+      &lt;p className="text-xl text-gray-600 max-w-3xl mx-auto"&gt;
+        نقدم مجموعة شاملة من خدمات السفر والسياحة والوثائق الرسمية
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+      {services.map((service, index) =&gt; (
+        &lt;Card key={index} className="hover:shadow-lg transition-shadow duration-300"&gt;
+          &lt;CardHeader className="text-center"&gt;
+            &lt;div className="flex justify-center mb-4 text-primary"&gt;
+              {service.icon}
+            &lt;/div&gt;
+            &lt;CardTitle className="text-xl mb-2"&gt;{service.title}&lt;/CardTitle&gt;
+            &lt;CardDescription&gt;{service.description}&lt;/CardDescription&gt;
+          &lt;/CardHeader&gt;
+          &lt;CardContent&gt;
+            &lt;ul className="space-y-2 mb-6"&gt;
+              {service.features.map((feature, idx) =&gt; (
+                &lt;li key={idx} className="flex items-center"&gt;
+                  &lt;CheckCircle className="w-4 h-4 text-green-600 ml-2" /&gt;
+                  &lt;span&gt;{feature}&lt;/span&gt;
+                &lt;/li&gt;
+              ))}
+            &lt;/ul&gt;
+            &lt;Button 
+              className="w-full bg-green-600 hover:bg-green-700"
+              onClick={() =&gt; handleWhatsAppBooking(service.title)}
+            &gt;
+              &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+              احجز عبر واتساب
+            &lt;/Button&gt;
+          &lt;/CardContent&gt;
+        &lt;/Card&gt;
+      ))}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - قسم التواصل والتذييل</div>
+        <div class="description">
+            يحتوي على معلومات التواصل وساعات العمل وتذييل الموقع.
+        </div>
+        <div class="arabic-explanation">
+            <strong>قسم التواصل:</strong><br>
+            • معلومات الاتصال الكاملة<br>
+            • رقم الهاتف: +967 773 462 821<br>
+            • واتساب: عبدالعزيز غوبر<br>
+            • العنوان: ذمار / صوال / محل المجاهد البطاريات<br>
+            • ساعات العمل التفصيلية<br><br>
+            <strong>ساعات العمل:</strong><br>
+            • السبت - الخميس: 8:00 ص - 10:00 م<br>
+            • الجمعة: 2:00 م - 10:00 م<br>
+            • الطوارئ: 24/7<br><br>
+            <strong>التذييل (Footer):</strong><br>
+            • معلومات الوكالة<br>
+            • قائمة الخدمات<br>
+            • معلومات التواصل<br>
+            • حقوق الطبع والنشر<br>
+            • معلومات المطور: علي مقبل الفقيه
+        </div>
+        <pre>{/* قسم التواصل */}
+&lt;section id="contact" className="py-20"&gt;
+  &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+    &lt;div className="grid grid-cols-1 lg:grid-cols-2 gap-12"&gt;
+      &lt;div&gt;
+        &lt;Card className="p-8"&gt;
+          &lt;h3 className="text-2xl font-semibold mb-6"&gt;معلومات التواصل&lt;/h3&gt;
+          &lt;div className="space-y-6"&gt;
+            &lt;div className="flex items-center"&gt;
+              &lt;Phone className="w-6 h-6 text-primary ml-4" /&gt;
+              &lt;div&gt;
+                &lt;p className="font-semibold"&gt;رقم الهاتف&lt;/p&gt;
+                &lt;p className="text-gray-600" dir="ltr"&gt;+967 773 462 821&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="flex items-center"&gt;
+              &lt;MessageCircle className="w-6 h-6 text-green-600 ml-4" /&gt;
+              &lt;div&gt;
+                &lt;p className="font-semibold"&gt;واتساب&lt;/p&gt;
+                &lt;p className="text-gray-600"&gt;عبدالعزيز غوبر&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="flex items-center"&gt;
+              &lt;MapPin className="w-6 h-6 text-red-600 ml-4" /&gt;
+              &lt;div&gt;
+                &lt;p className="font-semibold"&gt;العنوان&lt;/p&gt;
+                &lt;p className="text-gray-600"&gt;ذمار / صوال / محل المجاهد البطاريات&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/Card&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+{/* التذييل */}
+&lt;footer className="bg-primary text-white py-12"&gt;
+  &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+    &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;
+      &lt;div&gt;
+        &lt;h3 className="text-2xl font-bold mb-4"&gt;وكالة الجود&lt;/h3&gt;
+        &lt;p className="text-white/80 mb-4"&gt;
+          وكالة متخصصة في السفريات والسياحة
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h4 className="text-lg font-semibold mb-4"&gt;خدماتنا&lt;/h4&gt;
+        &lt;ul className="space-y-2 text-white/80"&gt;
+          &lt;li&gt;تأشيرات السفر&lt;/li&gt;
+          &lt;li&gt;حج وعمرة&lt;/li&gt;
+          &lt;li&gt;رحلات يومية&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className="border-t border-white/20 mt-8 pt-8 text-center"&gt;
+      &lt;p&gt;&copy; 2024 وكالة الجود للسفريات والسياحة&lt;/p&gt;
+      &lt;p&gt;تصميم وتطوير: علي مقبل الفقيه | هاتف: 717480847&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📋 ملخص المشروع</div>
+        <div class="description">
+            نظرة شاملة على هيكل مشروع موقع وكالة الجود للسفريات والمميزات.
+        </div>
+        <div class="arabic-explanation">
+            <strong>نبذة عن المشروع:</strong><br>
+            موقع إلكتروني متكامل لوكالة الجود للسفريات والسياحة، مصمم خصيصاً للعملاء العرب مع دعم كامل للغة العربية والكتابة من اليمين لليسار. يوفر الموقع تجربة مستخدم سهلة ومريحة للحجز المباشر عبر واتساب دون الحاجة لتسجيل الدخول.
+        </div>
+        <pre><strong>مشروع: موقع وكالة الجود للسفريات والسياحة</strong>
+
+<strong>التقنيات المستخدمة:</strong>
+- React 19.1.0 مع TypeScript
+- Vite لأدوات البناء
+- Tailwind CSS للتصميم
+- مكونات Radix UI
+- أيقونات Lucide React
+- دعم كامل للغة العربية والكتابة من اليمين لليسار
+
+<strong>المميزات الرئيسية:</strong>
+1. دعم اللغة العربية مع تخطيط RTL
+2. تكامل واتساب للحجز المباشر
+3. تصميم متجاوب يبدأ بالهواتف المحمولة
+4. عرض خدمات السفر والسياحة
+5. قسم ملف المالك الشخصي
+6. معلومات التواصل وساعات العمل
+7. هوية بصرية احترافية لوكالة السفر
+
+<strong>الخدمات المقدمة:</strong>
+- خدمات التأشيرات لجميع الدول
+- برامج الحج والعمرة
+- رحلات يومية للسعودية واليمن
+- البطاقات الشخصية
+- خدمات جوازات السفر
+- البطاقات العائلية
+- الحوالات المالية
+
+<strong>معلومات التواصل:</strong>
+- المالك: عبدالعزيز غوبر
+- الهاتف: +967 773 462 821
+- الموقع: ذمار / صوال / محل المجاهد البطاريات
+- تكامل حجز واتساب
+
+<strong>مميزات التصميم:</strong>
+- نظام ألوان أخضر وذهبي احترافي
+- خط Cairo للنصوص العربية
+- حركات وتأثيرات انتقال سلسة
+- تخطيط قائم على البطاقات للخدمات
+- مؤشرات الثقة والشهادات
+- تنقل متجاوب للهواتف المحمولة
+
+<strong>معلومات المطور:</strong>
+- التصميم والتطوير: علي مقبل الفقيه
+- الهاتف: 717480847
+
+<strong>تعليمات التشغيل:</strong>
+1. npm install - لتثبيت المكتبات
+2. npm run dev - لتشغيل الخادم المحلي
+3. npm run build - لبناء المشروع للإنتاج
+4. npm run preview - لمعاينة النسخة المبنية
+
+<strong>الملفات الرئيسية:</strong>
+- src/App.tsx: المكون الرئيسي للتطبيق
+- src/main.tsx: نقطة بداية React
+- src/index.css: أنماط CSS العامة
+- tailwind.config.cjs: إعدادات Tailwind
+- package.json: تبعيات المشروع
+- index.html: الملف الأساسي للموقع</pre>
+    </div>
+
+    <script>
+        // إضافة التاريخ الحالي تلقائياً
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const today = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    weekday: 'long'
+                };
+                dateElement.textContent = today.toLocaleDateString('ar-SA', options);
+            }
+        });
+    </script>
+</body>
+</html>

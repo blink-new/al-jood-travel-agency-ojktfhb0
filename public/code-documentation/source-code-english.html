@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Jood Travel Agency - Source Code Documentation</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 20px;
+            background: #f8f9fa;
+        }
+        .header {
+            text-align: center;
+            background: #1B4332;
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .file-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+        .file-title {
+            background: #D4AF37;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.4;
+            border-left: 4px solid #1B4332;
+        }
+        .description {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 4px solid #28a745;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        @media print {
+            body { margin: 0; }
+            .file-section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Al-Jood Travel Agency</h1>
+        <h2>Source Code Documentation</h2>
+        <p>Complete source code for the travel agency website</p>
+        <p>Generated on: ${new Date().toLocaleDateString()}</p>
+    </div>
+
+    <div class="file-section">
+        <div class="file-title">📄 package.json - Project Dependencies</div>
+        <div class="description">
+            This file contains all the project dependencies and scripts needed to run the application.
+        </div>
+        <pre>${JSON.stringify(JSON.parse(`{
+  "name": "user",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "npm run lint:js && npm run lint:css",
+    "preview": "vite preview",
+    "lint:css": "stylelint \\"**/*.css\\" --fix --quiet",
+    "lint:js": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --quiet"
+  },
+  "dependencies": {
+    "@blinkdotnew/sdk": "^0.17.2",
+    "@dnd-kit/core": "^6.3.1",
+    "@hookform/resolvers": "^5.1.1",
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-alert-dialog": "^1.1.14",
+    "@radix-ui/react-aspect-ratio": "^1.1.7",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-checkbox": "^1.3.2",
+    "@radix-ui/react-collapsible": "^1.1.11",
+    "@radix-ui/react-context-menu": "^2.2.15",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-hover-card": "^1.1.14",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-menubar": "^1.1.15",
+    "@radix-ui/react-navigation-menu": "^1.2.13",
+    "@radix-ui/react-popover": "^1.1.14",
+    "@radix-ui/react-progress": "^1.1.7",
+    "@radix-ui/react-radio-group": "^1.3.7",
+    "@radix-ui/react-scroll-area": "^1.2.9",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slider": "^1.3.5",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.5",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-toast": "^1.2.14",
+    "@radix-ui/react-toggle": "^1.1.9",
+    "@radix-ui/react-toggle-group": "^1.1.10",
+    "@radix-ui/react-tooltip": "^1.2.7",
+    "@react-three/drei": "^10.5.0",
+    "@react-three/fiber": "^9.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.3",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.525.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.1.0",
+    "react-day-picker": "^9.8.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.60.0",
+    "react-hot-toast": "^2.5.2",
+    "react-resizable-panels": "^3.0.3",
+    "react-responsive": "^10.0.1",
+    "react-router-dom": "^7.6.3",
+    "recharts": "^2.15.4",
+    "sonner": "^2.0.6",
+    "vaul": "^1.1.2",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "postcss": "^8.4.31",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard": "^38.0.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.3.5",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4"
+  }
+}`), null, 2)}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">🌐 index.html - Main HTML File</div>
+        <div class="description">
+            The main HTML file that serves as the entry point for the React application.
+        </div>
+        <pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Blink App&lt;/title&gt;
+    &lt;!-- CRITICAL: DO NOT REMOVE/MODIFY THIS COMMENT OR THE SCRIPT BELOW --&gt;
+    &lt;script src="https://blink.new/auto-engineer.js?projectId=al-jood-travel-agency-ojktfhb0" type="module"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;script type="module" src="/src/main.tsx"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <div class="file-section">
+        <div class="file-title">⚛️ src/main.tsx - React Entry Point</div>
+        <div class="description">
+            This file initializes the React application and renders the main App component.
+        </div>
+        <pre>import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Toaster } from 'react-hot-toast'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  &lt;React.StrictMode&gt;
+    &lt;Toaster position="top-right" /&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;,
+)</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">🎨 src/index.css - Global Styles</div>
+        <div class="description">
+            Global CSS styles including Tailwind CSS imports, custom variables, and Arabic RTL support.
+        </div>
+        <pre>@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 30 41 59;
+  --card: 255 255 255;
+  --card-foreground: 30 41 59;
+  --popover: 255 255 255;
+  --popover-foreground: 30 41 59;
+  --primary: 16 185 129;
+  --primary-foreground: 255 255 255;
+  --secondary: 248 250 252;
+  --secondary-foreground: 30 41 59;
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+  --accent: 251 146 60;
+  --accent-foreground: 255 255 255;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 16 185 129;
+  --chart-1: 16 185 129;
+  --chart-2: 251 146 60;
+  --chart-3: 34 197 94;
+  --chart-4: 251 191 36;
+  --chart-5: 239 68 68;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 15 36 25;
+  --foreground: 248 250 252;
+  --card: 15 36 25;
+  --card-foreground: 248 250 252;
+  --popover: 15 36 25;
+  --popover-foreground: 248 250 252;
+  --primary: 212 175 55;
+  --primary-foreground: 15 23 42;
+  --secondary: 30 58 42;
+  --secondary-foreground: 248 250 252;
+  --muted: 30 58 42;
+  --muted-foreground: 148 163 184;
+  --accent: 27 67 50;
+  --accent-foreground: 248 250 252;
+  --destructive: 220 38 38;
+  --destructive-foreground: 248 250 252;
+  --border: 30 58 42;
+  --input: 30 58 42;
+  --ring: 212 175 55;
+  --chart-1: 212 175 55;
+  --chart-2: 27 67 50;
+  --chart-3: 34 197 94;
+  --chart-4: 251 191 36;
+  --chart-5: 239 68 68;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: Cairo, Inter, system-ui, sans-serif;
+  direction: rtl;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0%;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button hover effects */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #128c7e, #25d366);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgb(37 211 102 / 30%);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgb(0 0 0 / 10%);
+}
+
+/* Arabic text improvements */
+.arabic-text {
+  font-family: Cairo, sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 80%));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent) / 80%));
+}
+
+/* Mobile responsive improvements */
+@media (width <= 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 70%;
+  pointer-events: none;
+}
+
+/* Focus states for accessibility */
+.focus-ring:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 80%);
+}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">⚙️ tailwind.config.cjs - Tailwind Configuration</div>
+        <div class="description">
+            Tailwind CSS configuration file with custom colors, fonts, and animations for the Arabic travel agency website.
+        </div>
+        <pre>/** @type {import('tailwindcss').Config} */
+module.exports = {
+    darkMode: ["class"],
+    content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+  	extend: {
+  		colors: {
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			primary: {
+  				'50': '#f0f9ff',
+  				'100': '#e0f2fe',
+  				'200': '#bae6fd',
+  				'300': '#7dd3fc',
+  				'400': '#38bdf8',
+  				'500': '#0ea5e9',
+  				'600': '#0284c7',
+  				'700': '#0369a1',
+  				'800': '#075985',
+  				'900': '#0c4a6e',
+  				'950': '#082f49',
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				'50': '#f8fafc',
+  				'100': '#f1f5f9',
+  				'200': '#e2e8f0',
+  				'300': '#cbd5e1',
+  				'400': '#94a3b8',
+  				'500': '#64748b',
+  				'600': '#475569',
+  				'700': '#334155',
+  				'800': '#1e293b',
+  				'900': '#0f172a',
+  				'950': '#020617',
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
+  			}
+  		},
+  		fontFamily: {
+  			'arabic': ['Cairo', 'system-ui', 'sans-serif'],
+  			sans: ['Inter', 'Cairo', 'system-ui', 'sans-serif']
+  		},
+  		animation: {
+  			'fade-in': 'fade-in 0.5s ease-out',
+  			'slide-up': 'slide-up 0.5s ease-out',
+  			'fade-in-up': 'fade-in-up 0.6s ease-out',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		},
+  		keyframes: {
+  			'fade-in': {
+  				'0%': {
+  					opacity: '0'
+  				},
+  				'100%': {
+  					opacity: '1'
+  				}
+  			},
+  			'slide-up': {
+  				'0%': {
+  					transform: 'translateY(10px)',
+  					opacity: '0'
+  				},
+  				'100%': {
+  					transform: 'translateY(0)',
+  					opacity: '1'
+  				}
+  			},
+  			'fade-in-up': {
+  				'0%': {
+  					opacity: '0',
+  					transform: 'translateY(30px)'
+  				},
+  				'100%': {
+  					opacity: '1',
+  					transform: 'translateY(0)'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
+  },
+  plugins: [require("tailwindcss-animate")],
+}</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - Main Application Component (Part 1)</div>
+        <div class="description">
+            The main React component containing the complete travel agency website with Arabic support and WhatsApp integration.
+        </div>
+        <pre>import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { 
+  Phone, 
+  MessageCircle, 
+  MapPin, 
+  Plane, 
+  Shield, 
+  Star,
+  CreditCard,
+  Users,
+  Calendar,
+  Globe,
+  CheckCircle,
+  Menu,
+  X,
+  Banknote
+} from 'lucide-react'
+
+function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // WhatsApp booking function with owner's number
+  const handleWhatsAppBooking = (service: string) => {
+    const phoneNumber = '+967773462821' // Owner's WhatsApp number
+    const message = `السلام عليكم، أريد حجز خدمة: ${service}`
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+  }
+
+  const services = [
+    {
+      title: 'تأشيرات السفر',
+      description: 'استخراج تأشيرات لجميع الدول بسرعة وأمان',
+      icon: &lt;Globe className="w-8 h-8" /&gt;,
+      features: ['تأشيرات سياحية', 'تأشيرات عمل', 'تأشيرات دراسة']
+    },
+    {
+      title: 'حج وعمرة',
+      description: 'برامج حج وعمرة مميزة مع أفضل الخدمات',
+      icon: &lt;Star className="w-8 h-8" /&gt;,
+      features: ['برامج VIP', 'إقامة فاخرة', 'مرشدين متخصصين']
+    },
+    {
+      title: 'تأشيرات عمرة',
+      description: 'استخراج تأشيرات عمرة بسهولة وسرعة',
+      icon: &lt;Star className="w-8 h-8" /&gt;,
+      features: ['إجراءات مبسطة', 'أسعار مناسبة', 'خدمة سريعة']
+    },
+    {
+      title: 'رحلات يومية',
+      description: 'رحلات يومية إلى محافظات السعودية واليمن',
+      icon: &lt;Plane className="w-8 h-8" /&gt;,
+      features: ['مركبات مريحة', 'مرشدين سياحيين', 'أسعار مناسبة']
+    },
+    {
+      title: 'بطاقات شخصية',
+      description: 'استخراج بطاقات شخصية بسهولة وأمان',
+      icon: &lt;CreditCard className="w-8 h-8" /&gt;,
+      features: ['سرعة في الإنجاز', 'أمان عالي', 'خدمة متميزة']
+    },
+    {
+      title: 'جوازات السفر',
+      description: 'استخراج وتجديد جوازات السفر',
+      icon: &lt;Shield className="w-8 h-8" /&gt;,
+      features: ['إجراءات مبسطة', 'متابعة مستمرة', 'ضمان الجودة']
+    },
+    {
+      title: 'بطاقات عائلية',
+      description: 'استخراج بطاقات عائلية وخدمات الأسرة',
+      icon: &lt;Users className="w-8 h-8" /&gt;,
+      features: ['خدمات شاملة', 'دعم كامل', 'أسعار تنافسية']
+    },
+    {
+      title: 'الحوالات المالية',
+      description: 'استلام وإرسال وإيداع الأموال والحوالات الخارجية والداخلية',
+      icon: &lt;Banknote className="w-8 h-8" /&gt;,
+      features: ['فروع الكريمي', 'النجم', 'تضامن', 'يمن إكس برس']
+    }
+  ]
+
+  const destinations = [
+    { name: 'الرياض', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop' },
+    { name: 'جدة', image: 'https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=400&h=300&fit=crop' },
+    { name: 'مكة المكرمة', image: 'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop' },
+    { name: 'المدينة المنورة', image: 'https://images.unsplash.com/photo-1564769625392-651b2c0e7b8b?w=400&h=300&fit=crop' },
+    { name: 'صنعاء', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop' },
+    { name: 'عدن', image: 'https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=400&h=300&fit=crop' }
+  ]</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - Main Application Component (Part 2 - JSX Return)</div>
+        <div class="description">
+            Continuation of the main App component containing the complete website layout with navigation, hero section, services, and footer.
+        </div>
+        <pre>  return (
+    &lt;div className="min-h-screen bg-background" dir="rtl"&gt;
+      {/* Navigation */}
+      &lt;nav className="bg-white shadow-sm border-b sticky top-0 z-50"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="flex justify-between items-center h-16"&gt;
+            &lt;div className="flex items-center space-x-4 space-x-reverse"&gt;
+              &lt;div className="text-2xl font-bold text-primary"&gt;وكالة الجود&lt;/div&gt;
+              &lt;Badge variant="secondary" className="bg-accent text-accent-foreground"&gt;
+                للسفريات والسياحة
+              &lt;/Badge&gt;
+            &lt;/div&gt;
+            
+            {/* Desktop Menu */}
+            &lt;div className="hidden md:flex items-center space-x-8 space-x-reverse"&gt;
+              &lt;a href="#home" className="text-gray-700 hover:text-primary transition-colors"&gt;الرئيسية&lt;/a&gt;
+              &lt;a href="#services" className="text-gray-700 hover:text-primary transition-colors"&gt;الخدمات&lt;/a&gt;
+              &lt;a href="#destinations" className="text-gray-700 hover:text-primary transition-colors"&gt;الوجهات&lt;/a&gt;
+              &lt;a href="#contact" className="text-gray-700 hover:text-primary transition-colors"&gt;اتصل بنا&lt;/a&gt;
+              &lt;Button 
+                onClick={() =&gt; handleWhatsAppBooking('استفسار عام')}
+                className="bg-green-600 hover:bg-green-700"
+              &gt;
+                &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+                واتساب
+              &lt;/Button&gt;
+            &lt;/div&gt;
+
+            {/* Mobile Menu Button */}
+            &lt;div className="md:hidden"&gt;
+              &lt;Button
+                variant="ghost"
+                size="icon"
+                onClick={() =&gt; setIsMenuOpen(!isMenuOpen)}
+              &gt;
+                {isMenuOpen ? &lt;X className="w-6 h-6" /&gt; : &lt;Menu className="w-6 h-6" /&gt;}
+              &lt;/Button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            &lt;div className="md:hidden py-4 border-t"&gt;
+              &lt;div className="flex flex-col space-y-4"&gt;
+                &lt;a href="#home" className="text-gray-700 hover:text-primary transition-colors"&gt;الرئيسية&lt;/a&gt;
+                &lt;a href="#services" className="text-gray-700 hover:text-primary transition-colors"&gt;الخدمات&lt;/a&gt;
+                &lt;a href="#destinations" className="text-gray-700 hover:text-primary transition-colors"&gt;الوجهات&lt;/a&gt;
+                &lt;a href="#contact" className="text-gray-700 hover:text-primary transition-colors"&gt;اتصل بنا&lt;/a&gt;
+                &lt;Button 
+                  onClick={() =&gt; handleWhatsAppBooking('استفسار عام')}
+                  className="bg-green-600 hover:bg-green-700 w-full"
+                &gt;
+                  &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+                  واتساب
+                &lt;/Button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/nav&gt;
+
+      {/* Owner Section */}
+      &lt;section className="bg-gradient-to-r from-primary/10 to-accent/10 py-8"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="flex flex-col md:flex-row items-center justify-center gap-6"&gt;
+            &lt;div className="relative"&gt;
+              &lt;img 
+                src="/owner-photo.jpg" 
+                alt="عبدالعزيز غوبر - مالك وكالة الجود"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-lg"
+              /&gt;
+              &lt;div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2"&gt;
+                &lt;MessageCircle className="w-4 h-4" /&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="text-center md:text-right"&gt;
+              &lt;h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2"&gt;
+                عبدالعزيز غوبر
+              &lt;/h3&gt;
+              &lt;p className="text-primary font-semibold mb-1"&gt;مالك وكالة الجود للسفريات&lt;/p&gt;
+              &lt;p className="text-gray-600 text-sm"&gt;متاح على واتساب لخدمتكم&lt;/p&gt;
+              &lt;Button 
+                size="sm" 
+                className="mt-3 bg-green-600 hover:bg-green-700"
+                onClick={() =&gt; handleWhatsAppBooking('التحدث مع المالك')}
+              &gt;
+                &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+                تواصل مباشر
+              &lt;/Button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Hero Section */}
+      &lt;section id="home" className="bg-gradient-to-br from-primary to-primary/80 text-white py-20"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="text-center"&gt;
+            &lt;h1 className="text-4xl md:text-6xl font-bold mb-6"&gt;
+              وكالة الجود للسفريات والسياحة
+            &lt;/h1&gt;
+            &lt;p className="text-xl md:text-2xl mb-8 text-white/90"&gt;
+              متعة السفر • راحة المركبات • أمان المسافر
+            &lt;/p&gt;
+            &lt;div className="flex flex-col sm:flex-row gap-4 justify-center items-center"&gt;
+              &lt;Button 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                onClick={() =&gt; handleWhatsAppBooking('حجز خدمة')}
+              &gt;
+                &lt;MessageCircle className="w-5 h-5 ml-2" /&gt;
+                احجز الآن عبر واتساب
+              &lt;/Button&gt;
+              &lt;Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-primary"
+              &gt;
+                &lt;Phone className="w-5 h-5 ml-2" /&gt;
+                اتصل بنا
+              &lt;/Button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Trust Indicators */}
+      &lt;section className="py-12 bg-gray-50"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"&gt;
+            &lt;div className="flex flex-col items-center"&gt;
+              &lt;Shield className="w-12 h-12 text-primary mb-4" /&gt;
+              &lt;h3 className="text-xl font-semibold mb-2"&gt;أمان وثقة&lt;/h3&gt;
+              &lt;p className="text-gray-600"&gt;خدمات آمنة ومضمونة مع أعلى معايير الجودة&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div className="flex flex-col items-center"&gt;
+              &lt;CheckCircle className="w-12 h-12 text-green-600 mb-4" /&gt;
+              &lt;h3 className="text-xl font-semibold mb-2"&gt;خدمة سريعة&lt;/h3&gt;
+              &lt;p className="text-gray-600"&gt;إنجاز المعاملات بأسرع وقت ممكن&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div className="flex flex-col items-center"&gt;
+              &lt;Star className="w-12 h-12 text-accent mb-4" /&gt;
+              &lt;h3 className="text-xl font-semibold mb-2"&gt;خبرة واسعة&lt;/h3&gt;
+              &lt;p className="text-gray-600"&gt;سنوات من الخبرة في مجال السفر والسياحة&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📱 src/App.tsx - Main Application Component (Part 3 - Services & Footer)</div>
+        <div class="description">
+            Final part of the App component containing services section, destinations, contact information, and footer.
+        </div>
+        <pre>      {/* Services Section */}
+      &lt;section id="services" className="py-20"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="text-center mb-16"&gt;
+            &lt;h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"&gt;
+              خدماتنا المتميزة
+            &lt;/h2&gt;
+            &lt;p className="text-xl text-gray-600 max-w-3xl mx-auto"&gt;
+              نقدم مجموعة شاملة من خدمات السفر والسياحة والوثائق الرسمية
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+            {services.map((service, index) =&gt; (
+              &lt;Card key={index} className="hover:shadow-lg transition-shadow duration-300"&gt;
+                &lt;CardHeader className="text-center"&gt;
+                  &lt;div className="flex justify-center mb-4 text-primary"&gt;
+                    {service.icon}
+                  &lt;/div&gt;
+                  &lt;CardTitle className="text-xl mb-2"&gt;{service.title}&lt;/CardTitle&gt;
+                  &lt;CardDescription className="text-gray-600"&gt;
+                    {service.description}
+                  &lt;/CardDescription&gt;
+                &lt;/CardHeader&gt;
+                &lt;CardContent&gt;
+                  &lt;ul className="space-y-2 mb-6"&gt;
+                    {service.features.map((feature, idx) =&gt; (
+                      &lt;li key={idx} className="flex items-center"&gt;
+                        &lt;CheckCircle className="w-4 h-4 text-green-600 ml-2" /&gt;
+                        &lt;span className="text-sm text-gray-700"&gt;{feature}&lt;/span&gt;
+                      &lt;/li&gt;
+                    ))}
+                  &lt;/ul&gt;
+                  &lt;Button 
+                    className="w-full bg-green-600 hover:bg-green-700"
+                    onClick={() =&gt; handleWhatsAppBooking(service.title)}
+                  &gt;
+                    &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+                    احجز عبر واتساب
+                  &lt;/Button&gt;
+                &lt;/CardContent&gt;
+              &lt;/Card&gt;
+            ))}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Destinations Section */}
+      &lt;section id="destinations" className="py-20 bg-gray-50"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="text-center mb-16"&gt;
+            &lt;h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"&gt;
+              وجهاتنا السياحية
+            &lt;/h2&gt;
+            &lt;p className="text-xl text-gray-600 max-w-3xl mx-auto"&gt;
+              رحلات يومية إلى أجمل المحافظات في المملكة العربية السعودية والجمهورية اليمنية
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+            {destinations.map((destination, index) =&gt; (
+              &lt;Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300"&gt;
+                &lt;div className="relative h-48"&gt;
+                  &lt;img 
+                    src={destination.image} 
+                    alt={destination.name}
+                    className="w-full h-full object-cover"
+                  /&gt;
+                  &lt;div className="absolute inset-0 bg-black/20"&gt;&lt;/div&gt;
+                  &lt;div className="absolute bottom-4 right-4"&gt;
+                    &lt;Badge className="bg-white text-gray-900"&gt;
+                      {destination.name}
+                    &lt;/Badge&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;CardContent className="p-6"&gt;
+                  &lt;h3 className="text-xl font-semibold mb-2"&gt;{destination.name}&lt;/h3&gt;
+                  &lt;p className="text-gray-600 mb-4"&gt;
+                    اكتشف جمال {destination.name} مع رحلاتنا اليومية المنظمة
+                  &lt;/p&gt;
+                  &lt;Button 
+                    className="w-full bg-green-600 hover:bg-green-700"
+                    onClick={() =&gt; handleWhatsAppBooking(`رحلة إلى ${destination.name}`)}
+                  &gt;
+                    &lt;MessageCircle className="w-4 h-4 ml-2" /&gt;
+                    احجز رحلة
+                  &lt;/Button&gt;
+                &lt;/CardContent&gt;
+              &lt;/Card&gt;
+            ))}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Contact Section */}
+      &lt;section id="contact" className="py-20"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="text-center mb-16"&gt;
+            &lt;h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"&gt;
+              تواصل معنا
+            &lt;/h2&gt;
+            &lt;p className="text-xl text-gray-600 max-w-3xl mx-auto"&gt;
+              نحن هنا لخدمتكم على مدار الساعة
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className="grid grid-cols-1 lg:grid-cols-2 gap-12"&gt;
+            &lt;div&gt;
+              &lt;Card className="p-8"&gt;
+                &lt;h3 className="text-2xl font-semibold mb-6"&gt;معلومات التواصل&lt;/h3&gt;
+                &lt;div className="space-y-6"&gt;
+                  &lt;div className="flex items-center"&gt;
+                    &lt;Phone className="w-6 h-6 text-primary ml-4" /&gt;
+                    &lt;div&gt;
+                      &lt;p className="font-semibold"&gt;رقم الهاتف&lt;/p&gt;
+                      &lt;p className="text-gray-600" dir="ltr"&gt;+967 773 462 821&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div className="flex items-center"&gt;
+                    &lt;MessageCircle className="w-6 h-6 text-green-600 ml-4" /&gt;
+                    &lt;div&gt;
+                      &lt;p className="font-semibold"&gt;واتساب&lt;/p&gt;
+                      &lt;p className="text-gray-600"&gt;عبدالعزيز غوبر&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div className="flex items-center"&gt;
+                    &lt;MapPin className="w-6 h-6 text-red-600 ml-4" /&gt;
+                    &lt;div&gt;
+                      &lt;p className="font-semibold"&gt;العنوان&lt;/p&gt;
+                      &lt;p className="text-gray-600"&gt;ذمار / صوال / محل المجاهد البطاريات&lt;/p&gt;
+                      &lt;p className="text-sm text-gray-500"&gt;وكالة الجود للسفريات والسياحة&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div className="mt-8"&gt;
+                  &lt;Button 
+                    size="lg" 
+                    className="w-full bg-green-600 hover:bg-green-700"
+                    onClick={() =&gt; handleWhatsAppBooking('استفسار عام')}
+                  &gt;
+                    &lt;MessageCircle className="w-5 h-5 ml-2" /&gt;
+                    تواصل عبر واتساب
+                  &lt;/Button&gt;
+                &lt;/div&gt;
+              &lt;/Card&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;Card className="p-8"&gt;
+                &lt;h3 className="text-2xl font-semibold mb-6"&gt;ساعات العمل&lt;/h3&gt;
+                &lt;div className="space-y-4"&gt;
+                  &lt;div className="flex justify-between items-center py-2 border-b"&gt;
+                    &lt;span className="font-medium"&gt;السبت - الخميس&lt;/span&gt;
+                    &lt;span className="text-gray-600"&gt;8:00 ص - 10:00 م&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div className="flex justify-between items-center py-2 border-b"&gt;
+                    &lt;span className="font-medium"&gt;الجمعة&lt;/span&gt;
+                    &lt;span className="text-gray-600"&gt;2:00 م - 10:00 م&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div className="flex justify-between items-center py-2"&gt;
+                    &lt;span className="font-medium"&gt;الطوارئ&lt;/span&gt;
+                    &lt;span className="text-green-600"&gt;24/7&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div className="mt-8 p-4 bg-green-50 rounded-lg"&gt;
+                  &lt;h4 className="font-semibold text-green-800 mb-2"&gt;خدمة العملاء&lt;/h4&gt;
+                  &lt;p className="text-green-700 text-sm"&gt;
+                    فريق خدمة العملاء متاح على واتساب لمساعدتكم في أي وقت
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/Card&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Footer */}
+      &lt;footer className="bg-primary text-white py-12"&gt;
+        &lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+          &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;
+            &lt;div&gt;
+              &lt;h3 className="text-2xl font-bold mb-4"&gt;وكالة الجود&lt;/h3&gt;
+              &lt;p className="text-white/80 mb-4"&gt;
+                وكالة متخصصة في السفريات والسياحة، نقدم خدمات متميزة في استخراج التأشيرات والوثائق الرسمية
+              &lt;/p&gt;
+              &lt;div className="flex space-x-4 space-x-reverse"&gt;
+                &lt;Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-primary"
+                  onClick={() =&gt; handleWhatsAppBooking('استفسار عام')}
+                &gt;
+                  &lt;MessageCircle className="w-4 h-4" /&gt;
+                &lt;/Button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;h4 className="text-lg font-semibold mb-4"&gt;خدماتنا&lt;/h4&gt;
+              &lt;ul className="space-y-2 text-white/80"&gt;
+                &lt;li&gt;تأشيرات السفر&lt;/li&gt;
+                &lt;li&gt;حج وعمرة&lt;/li&gt;
+                &lt;li&gt;رحلات يومية&lt;/li&gt;
+                &lt;li&gt;بطاقات شخصية&lt;/li&gt;
+                &lt;li&gt;جوازات السفر&lt;/li&gt;
+                &lt;li&gt;بطاقات عائلية&lt;/li&gt;
+                &lt;li&gt;الحوالات المالية&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;h4 className="text-lg font-semibold mb-4"&gt;تواصل معنا&lt;/h4&gt;
+              &lt;div className="space-y-2 text-white/80"&gt;
+                &lt;p&gt;الهاتف: +967 773 462 821&lt;/p&gt;
+                &lt;p&gt;واتساب: عبدالعزيز غوبر&lt;/p&gt;
+                &lt;p&gt;متاح 24/7 لخدمتكم&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60"&gt;
+            &lt;p&gt;&copy; 2024 وكالة الجود للسفريات والسياحة. جميع الحقوق محفوظة.&lt;/p&gt;
+            &lt;div className="mt-4 pt-4 border-t border-white/10"&gt;
+              &lt;p className="text-sm"&gt;
+                تصميم وتطوير: علي مقبل الفقيه | هاتف: 717480847
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/footer&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App</pre>
+    </div>
+
+    <div class="file-section page-break">
+        <div class="file-title">📋 Project Summary</div>
+        <div class="description">
+            Complete overview of the Al-Jood Travel Agency website project structure and features.
+        </div>
+        <pre><strong>Project: Al-Jood Travel Agency Website</strong>
+
+<strong>Technology Stack:</strong>
+- React 19.1.0 with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- Radix UI components
+- Lucide React for icons
+- Arabic RTL support
+
+<strong>Key Features:</strong>
+1. Arabic language support with RTL layout
+2. WhatsApp integration for direct booking
+3. Responsive mobile-first design
+4. Travel services showcase
+5. Owner profile section
+6. Contact information and business hours
+7. Professional travel agency branding
+
+<strong>Services Offered:</strong>
+- Visa services for all countries
+- Hajj and Umrah packages
+- Daily trips to Saudi Arabia and Yemen
+- Personal ID cards
+- Passport services
+- Family cards
+- Money transfers
+
+<strong>Contact Information:</strong>
+- Owner: عبدالعزيز غوبر (Abdul Aziz Ghober)
+- Phone: +967 773 462 821
+- Location: ذمار / صوال / محل المجاهد البطاريات
+- WhatsApp booking integration
+
+<strong>Design Features:</strong>
+- Professional green and gold color scheme
+- Cairo font for Arabic text
+- Smooth animations and hover effects
+- Card-based layout for services
+- Trust indicators and testimonials
+- Mobile responsive navigation
+
+<strong>Developer Information:</strong>
+- Designed and developed by: علي مقبل الفقيه
+- Phone: 717480847</pre>
+    </div>
+
+    <script>
+        // Auto-generate current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateElements = document.querySelectorAll('.header p');
+            if (dateElements.length > 1) {
+                dateElements[1].textContent = 'Generated on: ' + new Date().toLocaleDateString();
+            }
+        });
+    </script>
+</body>
+</html>
